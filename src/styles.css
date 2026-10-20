@@ -132,6 +132,43 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+:root {
+  --background: oklch(0.13 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(1 0 0);
+  --primary: oklch(0.69 0.21 45);
+  --primary-foreground: oklch(0.13 0 0);
+  --primary-glow: oklch(0.76 0.18 55);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.72 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --glass: oklch(1 0 0 / 5%);
+  --shadow-glow: 0 0 80px -10px color-mix(in oklab, var(--primary) 60%, transparent);
+}
+
+@theme inline {
+  --color-primary-glow: var(--primary-glow);
+  --color-glass: var(--glass);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --shadow-glow: var(--shadow-glow);
+}
+
+@keyframes float-y { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-18px) rotate(1deg); } }
+@keyframes ken-burns { 0% { transform: scale(1); } 100% { transform: scale(1.12); } }
+@keyframes sheen { 0% { transform: translateX(-120%) skewX(-20deg); } 60%,100% { transform: translateX(220%) skewX(-20deg); } }
+@keyframes pulse-glow { 0%,100% { opacity: .45; } 50% { opacity: .9; } }
+@keyframes rise { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes particle { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-100vh); opacity: 0; } }
+
+@utility animate-float { animation: float-y 7s ease-in-out infinite; }
+@utility animate-ken-burns { animation: ken-burns 14s ease-in-out infinite alternate; }
+@utility animate-sheen { animation: sheen 5s ease-in-out infinite; }
+@utility animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+@utility animate-rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+@utility animate-particle { animation: particle linear infinite; }
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -140,5 +177,6 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
   }
 }
