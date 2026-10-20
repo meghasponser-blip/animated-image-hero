@@ -25,10 +25,10 @@ export function NeuralCanvas() {
         if (p.y < 0 || p.y > 1) p.vy *= -1;
       }
       for (let i = 0; i < pts.length; i++) {
-        const a = pts[i]; const ax = a.x * w, ay = a.y * h;
+        const a = pts[i]!; const ax = a.x * w, ay = a.y * h;
         const md = Math.hypot(ax - mouse.x, ay - mouse.y);
         for (let j = i + 1; j < pts.length; j++) {
-          const b = pts[j]; const d = Math.hypot(ax - b.x * w, ay - b.y * h);
+          const b = pts[j]!; const d = Math.hypot(ax - b.x * w, ay - b.y * h);
           if (d < 130) {
             ctx.strokeStyle = `rgba(190,170,255,${(1 - d / 130) * (md < 180 ? 0.6 : 0.18)})`;
             ctx.lineWidth = 0.6; ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(b.x * w, b.y * h); ctx.stroke();
