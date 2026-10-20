@@ -168,12 +168,18 @@
 @utility scanlines { background-image: repeating-linear-gradient(0deg, oklch(1 0 0 / 4%) 0 1px, transparent 1px 6px); }
 @keyframes spin-slow { 0%,100% { transform: rotate(-8deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-20px); } }
 @utility animate-twist { animation: spin-slow 9s ease-in-out infinite; }
+@utility text-glow { text-shadow: 0 0 40px color-mix(in oklab, var(--primary-glow) 70%, transparent); }
+@utility text-gradient { background: linear-gradient(90deg, var(--primary-glow), oklch(0.75 0.15 250)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@utility card-glass { background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(16px); }
 @utility animate-float { animation: float-y 7s ease-in-out infinite; }
 @utility animate-ken-burns { animation: ken-burns 14s ease-in-out infinite alternate; }
 @utility animate-sheen { animation: sheen 5s ease-in-out infinite; }
 @utility animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
 @utility animate-rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
 @utility animate-particle { animation: particle linear infinite; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
 
 @layer base {
   * {

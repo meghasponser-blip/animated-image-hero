@@ -26,11 +26,13 @@ export function Hero() {
       <NeuralCanvas />
       <motion.div className="pointer-events-none absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-primary-glow/25 blur-[100px]" style={{ x: gx, y: gy }} />
 
-      <motion.img src={glass} alt="" width={768} height={1152} initial={{ opacity: 0, x: -120 }} animate={{ opacity: 0.95, x: 0 }} transition={{ duration: 1.6, ease }}
-        style={{ x: lx, y: ly }} className="pointer-events-none absolute -left-28 top-[30%] w-48 md:w-80" >
-      </motion.img>
-      <motion.img src={glass} alt="" width={768} height={1152} initial={{ opacity: 0, x: 120 }} animate={{ opacity: 0.95, x: 0 }} transition={{ duration: 1.6, ease }}
-        style={{ x: rx, y: ry }} className="pointer-events-none absolute -right-24 -top-20 w-52 rotate-180 md:w-96" />
+      <motion.div style={{ x: lx, y: ly }} className="pointer-events-none absolute -left-28 top-[30%] w-48 md:w-80">
+        <motion.img src={glass} alt="" width={768} height={1152} initial={{ opacity: 0, x: -120 }} animate={{ opacity: 0.95, x: 0 }} transition={{ duration: 1.6, ease }} className="w-full animate-twist" />
+      </motion.div>
+      <motion.div style={{ x: rx, y: ry }} className="pointer-events-none absolute -right-24 -top-20 w-52 md:w-96">
+        <motion.img src={glass} alt="" width={768} height={1152} initial={{ opacity: 0, x: 120 }} animate={{ opacity: 0.95, x: 0 }} transition={{ duration: 1.6, ease }} className="w-full rotate-180">
+        </motion.img>
+      </motion.div>
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-24 text-center">
         <motion.p initial={{ opacity: 0, letterSpacing: "0.8em" }} animate={{ opacity: 1, letterSpacing: "0.3em" }} transition={{ duration: 1.2, ease }}
