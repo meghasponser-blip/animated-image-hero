@@ -133,26 +133,28 @@
 }
 
 :root {
-  --background: oklch(0.13 0 0);
+  --background: oklch(0.16 0.08 275);
   --foreground: oklch(1 0 0);
-  --card: oklch(0.18 0 0);
+  --card: oklch(0.22 0.1 275);
   --card-foreground: oklch(1 0 0);
-  --primary: oklch(0.69 0.21 45);
-  --primary-foreground: oklch(0.13 0 0);
-  --primary-glow: oklch(0.76 0.18 55);
-  --muted: oklch(0.2 0 0);
-  --muted-foreground: oklch(0.72 0 0);
-  --border: oklch(1 0 0 / 12%);
-  --glass: oklch(1 0 0 / 5%);
-  --shadow-glow: 0 0 80px -10px color-mix(in oklab, var(--primary) 60%, transparent);
+  --primary: oklch(0.55 0.26 270);
+  --primary-foreground: oklch(1 0 0);
+  --primary-glow: oklch(0.65 0.25 330);
+  --muted: oklch(0.24 0.08 275);
+  --muted-foreground: oklch(0.82 0.04 280);
+  --border: oklch(1 0 0 / 18%);
+  --glass: oklch(1 0 0 / 8%);
+  --gradient-hero: radial-gradient(ellipse 60% 55% at 50% 45%, oklch(0.5 0.27 268) 0%, oklch(0.3 0.2 272) 45%, oklch(0.14 0.07 275) 100%), radial-gradient(circle at 0% 60%, oklch(0.55 0.24 340 / 70%), transparent 40%), radial-gradient(circle at 100% 40%, oklch(0.55 0.24 340 / 70%), transparent 40%);
+  --shadow-glow: 0 0 60px -10px color-mix(in oklab, var(--primary-glow) 70%, transparent);
 }
 
 @theme inline {
   --color-primary-glow: var(--primary-glow);
   --color-glass: var(--glass);
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "Lexend", sans-serif;
   --font-sans: "Inter", sans-serif;
   --shadow-glow: var(--shadow-glow);
+  --background-image-hero: var(--gradient-hero);
 }
 
 @keyframes float-y { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-18px) rotate(1deg); } }
@@ -162,6 +164,10 @@
 @keyframes rise { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
 @keyframes particle { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-100vh); opacity: 0; } }
 
+@utility bg-hero { background: var(--gradient-hero); }
+@utility scanlines { background-image: repeating-linear-gradient(0deg, oklch(1 0 0 / 4%) 0 1px, transparent 1px 6px); }
+@keyframes spin-slow { 0%,100% { transform: rotate(-8deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-20px); } }
+@utility animate-twist { animation: spin-slow 9s ease-in-out infinite; }
 @utility animate-float { animation: float-y 7s ease-in-out infinite; }
 @utility animate-ken-burns { animation: ken-burns 14s ease-in-out infinite alternate; }
 @utility animate-sheen { animation: sheen 5s ease-in-out infinite; }
